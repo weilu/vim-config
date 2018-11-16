@@ -80,10 +80,6 @@
   Bundle "git://github.com/nono/vim-handlebars.git"
     au BufNewFile,BufRead *.hbs set filetype=handlebars
 
-" Stylus
-  Bundle "git://github.com/wavded/vim-stylus.git"
-    au BufNewFile,BufRead *.styl set filetype=stylus
-
 " Coffee script
   Bundle "git://github.com/kchmck/vim-coffee-script.git"
     au BufNewFile,BufRead *.coffee set filetype=coffee
