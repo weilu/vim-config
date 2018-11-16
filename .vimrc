@@ -9,8 +9,5 @@ runtime! custom_config/*.vim
 " for git, add spell checking and automatic wrapping at 72 columns
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
-" ractive.js
-au BufNewFile,BufRead *.ract set filetype=html
-
 " save all on focus lost
 :au FocusLost * silent! wa
