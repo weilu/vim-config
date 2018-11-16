@@ -24,12 +24,27 @@
   Bundle "git://github.com/vim-scripts/ruby-matchit.git"
   Bundle "git://github.com/wgibbs/vim-irblack.git"
   Bundle "git://github.com/wavded/vim-stylus.git"
+  Bundle 'wakatime/vim-wakatime'
+
+" LaTeX support
+  Bundle 'git://github.com/vim-scripts/LaTeX-Suite-aka-Vim-LaTeX.git'
+    " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+    filetype plugin on
+
+    " IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+    " can be called correctly.
+    set shellslash
+
+    " OPTIONAL: This enables automatic indentation as you type.
+    filetype indent on
+
+    " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+    " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+    " The following changes the default filetype back to 'tex':
+    let g:tex_flavor='latex'
 
 " CtrlP - with FuzzyFinder compatible keymaps
   Bundle "git://github.com/kien/ctrlp.vim.git"
-    nnoremap <Leader>b :<C-U>CtrlPBuffer<CR>
-    nnoremap <Leader>t :<C-U>CtrlP<CR>
-    nnoremap <Leader>T :<C-U>CtrlPTag<CR>
     let g:ctrlp_prompt_mappings = {
         \ 'PrtSelectMove("j")':   ['<down>'],
         \ 'PrtSelectMove("k")':   ['<up>'],
@@ -173,7 +188,7 @@
 " Syntastic for catching syntax errors on save
   Bundle "git://github.com/scrooloose/syntastic.git"
     let g:syntastic_enable_signs=1
-    let g:syntastic_quiet_warnings=1
+    let g:syntastic_quiet_messages={'level': 'warnings'}
     " syntastic is too slow for haml and sass
     let g:syntastic_mode_map = { 'mode': 'active',
                                \ 'active_filetypes': [],
