@@ -17,7 +17,6 @@
   Bundle "git://github.com/ervandew/supertab.git"
   Bundle "git://github.com/tomtom/tcomment_vim.git"
   Bundle "git://github.com/michaeljsmith/vim-indent-object.git"
-  Bundle "git://github.com/tsaleh/vim-matchit.git"
   Bundle "git://github.com/kana/vim-textobj-user.git"
   Bundle "git://github.com/nelstrom/vim-textobj-rubyblock.git"
   Bundle "git://github.com/tpope/vim-repeat.git"
@@ -25,6 +24,7 @@
   Bundle "git://github.com/wgibbs/vim-irblack.git"
   Bundle "git://github.com/wavded/vim-stylus.git"
   Bundle 'wakatime/vim-wakatime'
+  Bundle 'dense-analysis/ale'
 
 " LaTeX support
   Bundle 'git://github.com/vim-scripts/LaTeX-Suite-aka-Vim-LaTeX.git'
@@ -43,6 +43,11 @@
     " The following changes the default filetype back to 'tex':
     let g:tex_flavor='latex'
 
+    let g:Tex_MultipleCompileFormats='pdf,bibtex,pdf'
+
+    " for resume writing, remove after done
+    " let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
+
 " CtrlP - with FuzzyFinder compatible keymaps
   Bundle "git://github.com/kien/ctrlp.vim.git"
     let g:ctrlp_prompt_mappings = {
@@ -53,6 +58,7 @@
         \ }
     " respect the .gitignore
     let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+    let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Compile and deploy Arduino (*.pde) sketches directly from Vim
   Bundle "git://github.com/smerrill/vim-arduino.git"
@@ -134,8 +140,12 @@
 
 
 " Markdown preview to quickly preview markdown files
-  Bundle "git://github.com/maba/vim-markdown-preview.git"
-  map <buffer> <Leader>mp :Mm<CR>
+  Plugin 'JamshedVesuna/vim-markdown-preview'
+    let vim_markdown_preview_temp_file=1
+    let vim_markdown_preview_browser='Google Chrome'
+    let vim_markdown_preview_toggle=2
+    let vim_markdown_preview_hotkey='<C-i>'
+    let vim_markdown_preview_github=1
 
 
 " NERDTree for project drawer
